@@ -15,9 +15,9 @@ public class PurchaseService {
 
     public void purchaseProduct(String productName) {
         validateProductName(productName);
-        int price = saleList.getPrice(productName);
+        int price = saleList.findSaleProduct(productName).getProduct().getPrice();
         validatePrice(price);
-        int quantity = saleList.getQuantity(productName);
+        int quantity = saleList.findSaleProduct(productName).getQuantity();
         validateQuantity(quantity);
 
         inputAmount -= price;
@@ -30,7 +30,7 @@ public class PurchaseService {
 
     private void validateProductName(String productName) {
         try {
-            saleList.getPrice(productName);
+            saleList.findSaleProduct(productName);
         } catch(NoSuchElementException e) {
             throw new IllegalArgumentException(PurchaseErrorMessage.NOT_FOUND_PRODUCT.getMessage());
         }
