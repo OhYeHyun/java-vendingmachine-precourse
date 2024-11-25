@@ -5,7 +5,7 @@ import vendingmachine.domain.SaleList;
 public class SaleListService {
     private final SaleList saleList;
 
-    public SaleListService(SaleList saleList) {
+    public SaleListService() {
         this.saleList = SaleList.getInstance();
     }
 

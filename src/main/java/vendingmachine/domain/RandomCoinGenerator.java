@@ -10,7 +10,7 @@ public class RandomCoinGenerator {
     private static final List<Integer> INDEX = Arrays.asList(0, 1, 2, 3);
     private final CoinHistory coinHistory;
 
-    public RandomCoinGenerator(CoinHistory coinHistory) {
+    public RandomCoinGenerator() {
         this.coinHistory = CoinHistory.getInstance();
     }
 

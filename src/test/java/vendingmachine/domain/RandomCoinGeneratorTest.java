@@ -13,7 +13,7 @@ class RandomCoinGeneratorTest {
     void 랜덤_생성_테스트() {
         CoinHistory coinHistory = CoinHistory.getInstance();
 
-        RandomCoinGenerator generator = new RandomCoinGenerator(coinHistory);
+        RandomCoinGenerator generator = new RandomCoinGenerator();
         generator.generateCoin(500);
 
         Map<Coin, Integer> result = coinHistory.getCoinHistory();

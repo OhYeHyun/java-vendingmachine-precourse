@@ -7,8 +7,8 @@ import java.util.Map.Entry;
 public class VendingMachine {
     private final CoinHistory coinHistory;
 
-    public VendingMachine(CoinHistory coinHistory) {
-        this.coinHistory = coinHistory;
+    public VendingMachine() {
+        this.coinHistory = CoinHistory.getInstance();
     }
 
     public Map<Coin, Integer> receiveCoin(int amount) {
