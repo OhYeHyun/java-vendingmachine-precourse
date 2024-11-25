@@ -8,7 +8,9 @@
 
 - SaleList
 - [ ] : List<SaleProduct> 형태
-- [ ] : 판매 상품 목록 업데이트
+
+- VendingMachine
+- [ ] : 잔돈 계산
 
 - CoinHistory
 - [ ] : Coin, 개수를 갖는 객체
@@ -16,9 +18,16 @@
 - RandomCoinGenerator
 - [ ] : 금액에 맞는 동전으로 랜덤 생성
 
-- VendingMachine
+- VendingMachineService
 - [ ] : List<CoinHistory>
-- [ ] : 잔돈 계산
+- [ ] : VendingMachine 에서 잔돈 계산
+
+- SaleListService
+- [ ] : 판매 상품 업데이트
+
+- PurchaseService
+- [ ] : 투입 금액, 상품 구매 처리
+- [ ] : VendingMachine 에 남은 잔돈 관리
 
 - AmountFormatValidator
 - [ ] : 숫자인지 확인
