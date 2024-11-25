@@ -5,8 +5,8 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class CoinHistory {
-    public static final CoinHistory instance = new CoinHistory();
     private static final Map<Coin, Integer> coinHistory = new LinkedHashMap<>();
+    public static final CoinHistory instance = new CoinHistory();
 
     private CoinHistory() {
         initialize();
@@ -25,6 +25,10 @@ public class CoinHistory {
 
     public void setCoin(Coin coin, int amount) {
         coinHistory.put(coin, amount);
+    }
+
+    public void useCoin(Coin coin, int amount) {
+        coinHistory.compute(coin, (k, curAmount) -> curAmount - amount);
     }
 
     public Map<Coin, Integer> getCoinHistory() {
