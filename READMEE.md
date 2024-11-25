@@ -24,10 +24,11 @@
 
 - SaleListService
 - [ ] : 판매 상품 업데이트
+- [ ] : 상품의 개수가 남아 있어 계속 구매 가능한지 확인
 
 - PurchaseService
 - [ ] : 투입 금액, 상품 구매 처리
-- [ ] : VendingMachine 에 남은 잔돈 관리
+- [ ] : 투입 금액으로 계속 구매 가능한지 확인
 
 - AmountFormatValidator
 - [ ] : 숫자인지 확인

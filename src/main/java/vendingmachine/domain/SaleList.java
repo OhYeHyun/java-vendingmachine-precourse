@@ -31,4 +31,12 @@ public class SaleList {
     private SaleProduct findSaleProduct(String productName) {
         return saleList.stream().filter(product -> Objects.equals(product.getProduct().getName(), productName)).findFirst().get();
     }
+
+    public int getPrice(String productName) {
+        return findSaleProduct(productName).getProduct().getPrice();
+    }
+
+    public int getQuantity(String productName) {
+        return findSaleProduct(productName).getQuantity();
+    }
 }
