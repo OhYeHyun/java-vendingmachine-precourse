@@ -12,8 +12,11 @@ class VendingMachineTest {
     @DisplayName("잔돈 계산이 올바르게 나오는지 확인")
     void 잔돈_테스트() {
         CoinHistory coinHistory = CoinHistory.getInstance();
-        coinHistory.setCoin(Coin.COIN_100, 4);
-        coinHistory.setCoin(Coin.COIN_50, 1);
+        coinHistory.putCoin(Coin.COIN_100);
+        coinHistory.putCoin(Coin.COIN_100);
+        coinHistory.putCoin(Coin.COIN_100);
+        coinHistory.putCoin(Coin.COIN_100);
+        coinHistory.putCoin(Coin.COIN_50);
 
         VendingMachine machine = new VendingMachine(CoinHistory.getInstance());
         Map<Coin, Integer> result = machine.receiveCoin(500);

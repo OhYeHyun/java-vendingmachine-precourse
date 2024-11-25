@@ -23,8 +23,8 @@ public class CoinHistory {
         coinHistory.put(Coin.COIN_10, 0);
     }
 
-    public void setCoin(Coin coin, int amount) {
-        coinHistory.put(coin, amount);
+    public void putCoin(Coin coin) {
+        coinHistory.put(coin, coinHistory.get(coin) + 1);
     }
 
     public void useCoin(Coin coin, int amount) {
