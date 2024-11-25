@@ -12,4 +12,9 @@ public class SaleListService {
     public void purchaseProduct(String productName) {
         saleList.purchaseProduct(productName);
     }
+
+    public boolean isRemainQuantity() {
+        int remainQuantity = saleList.getSaleList().stream().mapToInt(product -> product.getQuantity()).sum();
+        return remainQuantity > 0;
+    }
 }

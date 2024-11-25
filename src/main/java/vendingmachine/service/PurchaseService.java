@@ -23,7 +23,7 @@ public class PurchaseService {
         inputAmount -= price;
     }
 
-    public boolean canPurchasing() {
+    public boolean isExistToPurchaseProduct() {
         int minimumPrice = saleList.getSaleList().stream().mapToInt(product -> product.getProduct().getPrice()).min().getAsInt();
         return inputAmount >= minimumPrice;
     }
