@@ -2,7 +2,7 @@ package vendingmachine.domain;
 
 public class SaleProduct {
     private final Product product;
-    private final int quantity;
+    private int quantity;
 
     public SaleProduct(Product product, int quantity) {
         this.product = product;
@@ -15,5 +15,9 @@ public class SaleProduct {
 
     public int getQuantity() {
         return quantity;
+    }
+
+    public void purchase() {
+        quantity--;
     }
 }
