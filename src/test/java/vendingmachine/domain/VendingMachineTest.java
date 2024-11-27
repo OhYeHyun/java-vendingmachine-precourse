@@ -19,11 +19,10 @@ class VendingMachineTest {
         coinHistory.putCoin(Coin.COIN_50);
 
         VendingMachine machine = new VendingMachine();
-        machine.receiveCoin(500);
 
-        Map<Coin, Integer> result = machine.getReceiveHistory();
+        Map<Coin, Integer> result = machine.receiveCoin(350);
 
-        assertThat(result.get(Coin.COIN_100)).isEqualTo(4);
+        assertThat(result.get(Coin.COIN_100)).isEqualTo(3);
         assertThat(result.get(Coin.COIN_50)).isEqualTo(1);
     }
 }
