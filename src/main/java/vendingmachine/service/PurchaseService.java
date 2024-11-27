@@ -9,6 +9,7 @@ public class PurchaseService {
     private int inputAmount;
 
     public PurchaseService(int inputAmount) {
+        validate(inputAmount);
         this.saleList = SaleList.getInstance();
         this.inputAmount = inputAmount;
     }
@@ -28,6 +29,10 @@ public class PurchaseService {
         return inputAmount >= minimumPrice;
     }
 
+    public int getInputAmount() {
+        return inputAmount;
+    }
+
     private void validateProductName(String productName) {
         try {
             saleList.findSaleProduct(productName);
@@ -45,6 +50,12 @@ public class PurchaseService {
     private void validateQuantity(int quantity) {
         if (quantity == 0) {
             throw new IllegalArgumentException(PurchaseErrorMessage.QUANTITY_SHORTAGE.getMessage());
+        }
+    }
+
+    private void validate(int inputAmount) {
+        if (inputAmount < 0) {
+            throw new IllegalArgumentException(PurchaseErrorMessage.MUST_NOT_BE_NEGATIVE_MONEY.getMessage());
         }
     }
 }
