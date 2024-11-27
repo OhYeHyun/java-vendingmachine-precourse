@@ -21,7 +21,7 @@ class VendingMachineTest {
         VendingMachine machine = new VendingMachine();
         machine.receiveCoin(500);
 
-        Map<Coin, Integer> result = coinHistory.getCoinHistory();
+        Map<Coin, Integer> result = machine.getReceiveHistory();
 
         assertThat(result.get(Coin.COIN_100)).isEqualTo(4);
         assertThat(result.get(Coin.COIN_50)).isEqualTo(1);
