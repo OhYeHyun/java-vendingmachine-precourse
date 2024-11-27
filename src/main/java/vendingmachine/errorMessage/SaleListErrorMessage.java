@@ -7,7 +7,7 @@ public enum SaleListErrorMessage {
     ALREADY_EXIST_PRODUCT("이미 존재하는 상품입니다.");
 
     private static final String PREFIX = "[ERROR] ";
-    private static final String AGAIN = "다시 입력해주세요.";
+    private static final String AGAIN = " 다시 입력해주세요.";
     private final String message;
 
     SaleListErrorMessage(String message) {

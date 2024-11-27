@@ -1,10 +1,11 @@
 package vendingmachine.errorMessage;
 
 public enum VendingMachineErrorMessage {
-    MUST_BE_10_UNITS_PRICE("가격이 10원 단위이어야 합니다.");
+    MUST_BE_10_UNITS_PRICE("가격이 10원 단위이어야 합니다."),
+    MUST_NOT_BE_NEGATIVE_PRICE("0 이상의 숫자여야 합니다.");
 
     private static final String PREFIX = "[ERROR] ";
-    private static final String AGAIN = "다시 입력해주세요.";
+    private static final String AGAIN = " 다시 입력해주세요.";
     private final String message;
 
     VendingMachineErrorMessage(String message) {
