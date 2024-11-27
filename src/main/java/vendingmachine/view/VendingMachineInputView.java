@@ -14,6 +14,7 @@ public class VendingMachineInputView {
     public static String getAmount(boolean isFirst) {
         while (true) {
             VendingMachineOutputView.instructionAmount(isFirst);
+            isFirst = false;
             String amount = getInput();
             try {
                 AmountFormatValidator.validate(amount);
