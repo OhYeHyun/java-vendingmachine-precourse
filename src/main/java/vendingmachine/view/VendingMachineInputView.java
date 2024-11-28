@@ -25,9 +25,9 @@ public class VendingMachineInputView {
         }
     }
 
-    public static String getInputAmount() {
+    public static String getMoney() {
         while (true) {
-            VendingMachineOutputView.instructionInputAmount();
+            VendingMachineOutputView.instructionMoney();
             String amount = getInput();
             try {
                 AmountFormatValidator.validate(amount);

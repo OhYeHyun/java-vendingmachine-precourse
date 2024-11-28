@@ -20,16 +20,16 @@ public class PurchaseManager {
     }
 
     public void processPurchase() {
-        putInputAmount();
+        putMoney();
         purchaseProduct();
         displayReceiveHistory();
     }
 
-    public void putInputAmount() {
+    public void putMoney() {
         while (true) {
             try {
-                int inputAmount = getInputAmount();
-                purchaseService = new PurchaseService(inputAmount);
+                int money = getMoney();
+                purchaseService = new PurchaseService(money);
                 return;
             } catch (IllegalArgumentException e) {
                 VendingMachineOutputView.printWithLineSpace(e.getMessage());
@@ -40,8 +40,8 @@ public class PurchaseManager {
     public void purchaseProduct() {
         while (saleListService.isRemainQuantity() && purchaseService.isExistToPurchaseProduct()) {
             try {
-                int inputAmount = purchaseService.getInputAmount();
-                String product = getPurchaseProducts(inputAmount);
+                int money = purchaseService.getMoney();
+                String product = getPurchaseProducts(money);
                 purchaseService.purchaseProduct(product);
                 saleListService.purchaseProduct(product);
             } catch (IllegalArgumentException e) {
@@ -51,18 +51,18 @@ public class PurchaseManager {
     }
 
     public void displayReceiveHistory() {
-        int remainInputAmount = purchaseService.getInputAmount();
-        Map<Coin, Integer> receiveHistory = machineService.receiveCoin(remainInputAmount);
-        VendingMachineOutputView.displayReceiveHistory(remainInputAmount, receiveHistory);
+        int remainMoney = purchaseService.getMoney();
+        Map<Coin, Integer> receiveHistory = machineService.receiveCoin(remainMoney);
+        VendingMachineOutputView.displayReceiveHistory(remainMoney, receiveHistory);
     }
 
-    private int getInputAmount() {
-        String inputAmount = VendingMachineInputView.getInputAmount();
-        return InputParser.parseToNumber(inputAmount);
+    private int getMoney() {
+        String money = VendingMachineInputView.getMoney();
+        return InputParser.parseToNumber(money);
     }
 
-    private String getPurchaseProducts(int inputAmount) {
-        VendingMachineOutputView.instructionPurchase(inputAmount);
+    private String getPurchaseProducts(int money) {
+        VendingMachineOutputView.instructionPurchase(money);
         return VendingMachineInputView.getPurchaseProduct();
     }
 }

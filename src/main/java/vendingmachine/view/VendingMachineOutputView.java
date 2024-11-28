@@ -39,19 +39,19 @@ public class VendingMachineOutputView {
         printWithLineSpace("상품명과 가격, 수량을 입력해 주세요.");
     }
 
-    public static void instructionInputAmount() {
+    public static void instructionMoney() {
         printWithLineSpace("투입 금액을 입력해 주세요.");
     }
 
-    public static void instructionPurchase(int inputAmount) {
-        String format = String.format("투입 금액: %d원", inputAmount);
+    public static void instructionPurchase(int money) {
+        String format = String.format("투입 금액: %d원", money);
         printWithLineSpace(format);
         print("구매할 상품명을 입력해 주세요.");
     }
 
-    public static void displayReceiveHistory(int inputAmount, Map<Coin, Integer> receiveHistory) {
-        String inputAmountFormat = String.format("투입 금액: %d원", inputAmount);
-        printWithLineSpace(inputAmountFormat);
+    public static void displayReceiveHistory(int money, Map<Coin, Integer> receiveHistory) {
+        String moneyFormat = String.format("투입 금액: %d원", money);
+        printWithLineSpace(moneyFormat);
         print("잔돈");
         receiveHistory.forEach((coin, amount) -> {
             String receiveHistoryFormat = String.format("%d원 - %d개", coin.getAmount(), amount);

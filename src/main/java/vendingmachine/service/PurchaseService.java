@@ -6,12 +6,12 @@ import vendingmachine.errorMessage.PurchaseErrorMessage;
 
 public class PurchaseService {
     private final SaleList saleList;
-    private int inputAmount;
+    private int money;
 
-    public PurchaseService(int inputAmount) {
-        validate(inputAmount);
+    public PurchaseService(int money) {
+        validate(money);
         this.saleList = SaleList.getInstance();
-        this.inputAmount = inputAmount;
+        this.money = money;
     }
 
     public void purchaseProduct(String productName) {
@@ -21,16 +21,16 @@ public class PurchaseService {
         int quantity = saleList.findSaleProduct(productName).getQuantity();
         validateQuantity(quantity);
 
-        inputAmount -= price;
+        money -= price;
     }
 
     public boolean isExistToPurchaseProduct() {
         int minimumPrice = saleList.getSaleList().stream().mapToInt(product -> product.getProduct().getPrice()).min().getAsInt();
-        return inputAmount >= minimumPrice;
+        return money >= minimumPrice;
     }
 
-    public int getInputAmount() {
-        return inputAmount;
+    public int getMoney() {
+        return money;
     }
 
     private void validateProductName(String productName) {
@@ -42,7 +42,7 @@ public class PurchaseService {
     }
 
     private void validatePrice(int price) {
-        if (inputAmount < price) {
+        if (money < price) {
             throw new IllegalArgumentException(PurchaseErrorMessage.NOT_ENOUGH_MONEY.getMessage());
         }
     }
@@ -53,8 +53,8 @@ public class PurchaseService {
         }
     }
 
-    private void validate(int inputAmount) {
-        if (inputAmount < 0) {
+    private void validate(int money) {
+        if (money < 0) {
             throw new IllegalArgumentException(PurchaseErrorMessage.MUST_NOT_BE_NEGATIVE_MONEY.getMessage());
         }
     }

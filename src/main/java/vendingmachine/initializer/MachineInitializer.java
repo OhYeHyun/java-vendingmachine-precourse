@@ -14,7 +14,7 @@ public class MachineInitializer {
         this.machineService = machineService;
     }
 
-    public void initializeMachine() {
+    public void processInitialize() {
         boolean isFirst = true;
         while (true) {
             try {

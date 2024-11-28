@@ -16,8 +16,8 @@ public class VendingMachineController {
     }
 
     public void run() {
-        initializer.initializeMachine();
-        productManager.addProducts();
+        initializer.processInitialize();
+        productManager.processAddProducts();
         purchaseManager.processPurchase();
     }
 }

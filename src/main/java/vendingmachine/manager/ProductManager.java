@@ -12,7 +12,7 @@ public class ProductManager {
         this.saleListService = saleListService;
     }
 
-    public void addProducts() {
+    public void processAddProducts() {
         while (true) {
             try {
                 addProduct();
